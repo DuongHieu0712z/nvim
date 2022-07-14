@@ -4,18 +4,38 @@ if not status_ok then
 end
 
 local actions = require 'telescope.actions'
+local previewers = require 'telescope.previewers'
+local sorters = require 'telescope.sorters'
+
+local icons = require 'helios.theme.icons'
 
 telescope.setup {
     defaults = {
-        prompt_prefix = ' ',
-        selection_caret = ' ',
+        sorting_strategy = 'ascending',
+        selection_strategy = 'reset',
+        scroll_strategy = 'cycle',
+
+        layout_strategy = 'horizontal',
+        layout_config = {
+            preview_cutoff = 120,
+            prompt_position = 'top',
+        },
+
+        wrap_results = true,
+
+        prompt_prefix = icons.telescope.prompt,
+        selection_caret = icons.telescope.selection,
+        entry_prefix = icons.telescope.entry,
+        multi_icon = icons.telescope.multi,
+        color_devicons = true,
+
         path_display = { 'smart' },
 
-        file_ignore_patterns = {
-            '.git',
-            'node_modules',
-            'vendor',
-        },
+        hl_result_eol = true,
+        dynamic_preview_title = false,
+
+        results_title = 'Results',
+        prompt_title = 'Prompt',
 
         mappings = {
             n = {
@@ -82,25 +102,51 @@ telescope.setup {
             },
         },
 
-        pickers = {
-            find_files = {
-                hidden = true,
-            },
+        cache_picker = {
+            num_pickers = -1,
         },
-        extensions = {
-            fzy_native = {
-                override_generic_sorter = true,
-                override_file_sorter = true,
-            },
-            fzf = {
-                fuzzy = true,
-                override_generic_sorter = true,
-                override_file_sorter = true,
-                case_mode = 'smart_case',
-            },
-            aerial = {
-                show_nesting = true,
-            },
+
+        preview = {
+            filesize_limit = false,
+            timeout = 500,
+            treesitter = true,
         },
-    }
+
+        file_sorter = sorters.get_fzy_sorter,
+        generic_sorter = sorters.get_fzy_sorter,
+        prefilter_sorter = sorters.prefilter,
+
+        file_previewer = previewers.vim_buffer_cat.new,
+        grep_previewer = previewers.vim_buffer_vimgrep.new,
+        qflist_previewer = previewers.vim_buffer_qflist.new,
+        buffer_previewer_maker = previewers.buffer_previewer_maker,
+
+        file_ignore_patterns = {
+            '.git',
+            'node_modules',
+            'vendor',
+        },
+    },
+
+    pickers = {
+        find_files = {
+            hidden = true,
+        },
+    },
+
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = true,
+            override_file_sorter = true,
+        },
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = 'smart_case',
+        },
+        aerial = {
+            show_nesting = true,
+        },
+    },
 }

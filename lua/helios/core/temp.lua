@@ -1,19 +1,46 @@
+vim.cmd [[
+
+    augroup _git
+        autocmd!
+        autocmd FileType gitcommit setlocal wrap
+        autocmd FileType gitcommit setlocal spell
+    augroup end
+
+    augroup _markdown
+        autocmd!
+        autocmd FileType markdown setlocal wrap
+        autocmd FileType markdown setlocal spell
+    augroup end
+
+    augroup _auto_resize
+        autocmd!
+        autocmd VimResized * tabdo wincmd = 
+    augroup end
+
+    augroup _alpha
+        autocmd!
+        autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+    augroup end
+]]
+
+-- Autoformat
+-- vim.cmd [[
+--     augroup _lsp
+--         autocmd!
+--         autocmd BufWritePre * lua vim.lsp.buf.formatting()
+--     augroup end
+-- ]]
+
+vim.cmd [[autocmd BufWritePre * undojoin | lua vim.lsp.buf.formatting_sync()]]
+
 local api = vim.api
 local autocmd = api.nvim_create_autocmd
-
--- Don't list quickfix buffers
-autocmd('FileType', {
-    pattern = 'qf',
-    callback = function()
-        vim.opt_local.buflisted = false
-    end,
-})
 
 -- Wrap the PackerSync command to warn people before using it
 
 -- Disable status line in dashboard
 autocmd('FileType', {
-    pattern = 'alpha,dashboard',
+    pattern = 'alpha,dashboard,startify',
     callback = function()
         vim.opt.laststatus = 0
     end,
@@ -64,11 +91,3 @@ autocmd('BufDelete', {
         end
     end,
 })
-
-require 'helios.core.options'
-
-local mappings = require 'helios.core.mappings'.mappings
-local opts = require 'helios.core.mappings'.opts
-require 'helios.core.utils'.load_mappings(mappings, opts)
-
-require 'helios.core.packer'.bootstrap()

@@ -42,13 +42,16 @@ aerial.setup {
     nerd_font = 'auto',
 
     on_attach = function(bufnr)
-        local aerial_mappings = require 'helios.core.mappings'.aerial_mappings
-        require 'helios.core.utils'.load_mappings(aerial_mappings, {
-            buffer = bufnr,
+        local opt = {
             silent = true,
             noremap = true,
             nowait = true,
-        })
+        }
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>c', '<cmd>AerialToggle!<cr>', opt)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '{', '<cmd>AerialPrev<cr>', opt)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '}', '<cmd>AerialNext<cr>', opt)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<cr>', opt)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<cr>', opt)
     end,
     on_first_symbols = function(bufnr)
         -- TODO:

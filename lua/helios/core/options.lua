@@ -3,14 +3,13 @@ local opt = vim.opt
 local cmd = vim.cmd
 
 
-g.neovide_transparency = 0.9
-g.toggle_theme_icon = '  '
-g.transparency = true
-g.theme_switcher_loaded = false
+cmd [[syntax on]]
 
+cmd [[filetype on]]
+cmd [[filetype indent on]]
+cmd [[filetype plugin on]]
+cmd [[filetype plugin indent on]]
 
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1
 
 vim.api.nvim_set_keymap('', '<space>', '<nop>', {
     buffer = nil,
@@ -18,8 +17,19 @@ vim.api.nvim_set_keymap('', '<space>', '<nop>', {
     noremap = true,
     nowait = true,
 })
-g.mapleader = ' '
-g.maplocalleader = ' '
+
+local g_opts = {
+    mapleader = ' ',
+    maplocalleader = ' ',
+    do_filetype_lua = 1,
+    did_load_filetypes = 0,
+    neovide_transparency = 0.9,
+}
+
+for key, value in pairs(g_opts) do
+    g[key] = value
+end
+
 
 local opts = {
     -- Encoding utf-8
@@ -55,6 +65,8 @@ local opts = {
     hlsearch = true,
     ignorecase = true,
     smartcase = true,
+    wildmenu = true,
+    wildignore = { '*/node_modules/*', '*/.git/*', '*/vendor/*' },
 
     -- Display list mode
     list = true,
@@ -75,7 +87,6 @@ local opts = {
     swapfile = false,
     undodir = vim.fn.stdpath 'cache' .. '/undo',
     undofile = true,
-    updatetime = 300,
 
     -- Clipboard
     clipboard = 'unnamedplus',
@@ -100,11 +111,15 @@ local opts = {
     cmdheight = 2,
     pumheight = 8,
 
-    -- Time
+    -- Perfomance
+    redrawtime = 1000,
+    timeoutlen = 250,
     ttimeoutlen = 100,
+    updatetime = 100,
 
     -- Indent
     autoindent = true,
+    preserveindent = true,
     smartindent = true,
     expandtab = true,
     smarttab = true,
@@ -118,23 +133,18 @@ local opts = {
     showtabline = 2, -- Show tab line
 
     mouse = 'a',
-    completeopt = { 'menuone', 'noselect' },
+    completeopt = { 'menu', 'menuone', 'noselect' },
+    matchpairs = { '(:)', '{:}', '[:]', '<:>' },
 }
 
 for key, value in pairs(opts) do
     opt[key] = value
 end
 
-opt.shortmess:append 'c'
-opt.whichwrap:append '<>[]hl'
+opt.backspace:append 'nostop'
 opt.iskeyword:append '-'
+opt.shortmess:append 'csI'
+opt.whichwrap:append '<,>,[,],h,l'
 
-
-cmd [[syntax on]]
-
-cmd [[filetype on]]
-cmd [[filetype indent on]]
-cmd [[filetype plugin on]]
-cmd [[filetype plugin indent on]]
 
 -- cmd [[autocmd FileType html,css,scss,javascript,javascriptreact,typescript,typescriptreact,json,xml,yaml set tabstop=2 shiftwidth=2 softtabstop=2]]

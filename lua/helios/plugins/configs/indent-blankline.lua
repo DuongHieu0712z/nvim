@@ -71,8 +71,20 @@ indent.setup {
         'neogitstatus',
         'NvimTree',
         'Trouble',
-        -- 'TelescopePrompt',
-        -- 'TelescopeResults',
+        'TelescopePrompt',
+        'TelescopeResults',
         '',
     },
 }
+
+local cmd = vim.cmd
+
+cmd [[hi IndentBlanklineIndent1 guifg=#ff8888 guibg=#1f1f1f]]
+cmd [[hi IndentBlanklineIndent2 guifg=#88ffff guibg=#1a1a1a]]
+cmd [[hi IndentBlanklineIndent3 guifg=#88ff88 guibg=#1f1f1f]]
+cmd [[hi IndentBlanklineIndent4 guifg=#ff88ff guibg=#1a1a1a]]
+cmd [[hi IndentBlanklineIndent5 guifg=#8888ff guibg=#1f1f1f]]
+cmd [[hi IndentBlanklineIndent6 guifg=#ffff88 guibg=#1a1a1a]]
+
+cmd [[hi IndentBlanklineContextStart gui=underline guisp=#9932bc]]
+cmd [[hi IndentBlanklineContextChar  guifg=#9932bc]]

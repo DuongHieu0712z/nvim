@@ -362,13 +362,13 @@ M.lsp_mappings = {
             ' LSP hover',
         },
 
-        ['d['] = {
+        ['[d'] = {
             function()
                 vim.diagnostic.goto_prev()
             end,
             ' Goto previous',
         },
-        ['d]'] = {
+        [']d'] = {
             function()
                 vim.diagnostic.goto_next()
             end,
@@ -432,16 +432,6 @@ M.lsp_mappings = {
             ' Diagnostic setloclist',
         },
     },
-}
-
-M.aerial_mappings = {
-    -- n = {
-    --     ['<leader>lS'] = { '<cmd>AerialToggle<cr>', 'Symbols outline' },
-    --     ['{'] = { '<cmd>AerialPrev<cr>', 'Jump backwards in aerial' },
-    --     ['}'] = { '<cmd>AerialNext<cr>', 'Jump forwards in aerial' },
-    --     ["[["] = { '<cmd>AerialPrevUp<cr>', 'Jump up and backwards in aerial' },
-    --     ["]]"] = { '<cmd>AerialNextUp<cr>', 'Jump up and forwards in aerial' },
-    -- },
 }
 
 return M

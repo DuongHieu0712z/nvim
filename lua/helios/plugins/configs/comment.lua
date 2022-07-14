@@ -9,12 +9,12 @@ comment.setup {
 
         local location = nil
         if ctx.ctype == utils.ctype.block then
-            location = require('ts_context_commentstring.utils').get_cursor_location()
+            location = require 'ts_context_commentstring.utils'.get_cursor_location()
         elseif ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V then
-            location = require('ts_context_commentstring.utils').get_visual_start_location()
+            location = require 'ts_context_commentstring.utils'.get_visual_start_location()
         end
 
-        return require('ts_context_commentstring.internal').calculate_commentstring {
+        return require 'ts_context_commentstring.internal'.calculate_commentstring {
             key = ctx.ctype == utils.ctype.line and '__default' or '__multiline',
             location = location,
         }

@@ -55,6 +55,8 @@ M.options = {
 }
 
 M.run = function(plugins)
+    vim.cmd [[packadd packer.nvim]]
+
     local packer_ok, packer = pcall(require, 'packer')
     if not packer_ok then
         return
@@ -73,6 +75,9 @@ M.run = function(plugins)
             packer.sync()
         end
     end)
+
+    local ok, _ = pcall(require, 'packer_compiled')
+    print(ok)
 end
 
 return M

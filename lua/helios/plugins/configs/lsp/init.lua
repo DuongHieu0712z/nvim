@@ -3,8 +3,6 @@ if not status_ok then
     return
 end
 
-require 'plugins.lsp.configs'
-require 'plugins.lsp.handlers'.setup()
-require 'plugins.lsp.null-ls'
-
-vim.cmd [[autocmd BufWritePre * undojoin | lua vim.lsp.buf.formatting_sync()]]
+require 'helios.plugins.configs.lsp.configs'
+require 'helios.plugins.configs.lsp.handlers'.setup()
+require 'helios.plugins.configs.lsp.null-ls'

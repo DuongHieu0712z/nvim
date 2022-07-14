@@ -64,4 +64,11 @@ M.git = {
 
 }
 
+M.telescope = {
+    prompt = ' ',
+    selection = ' ',
+    entry = '  ',
+    multi = '珞',
+}
+
 return M

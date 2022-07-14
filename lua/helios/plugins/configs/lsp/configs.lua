@@ -11,6 +11,7 @@ local servers = {
     'pyright',
     'html',
     'cssls',
+    'cssmodules_ls',
     'tsserver',
     'eslint',
     'emmet_ls',
@@ -42,7 +43,7 @@ local settings = {
         uninstall_server = 'X',
     },
     log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 10,
+    -- max_concurrent_installers = 10,
 }
 
 lsp_installer.setup(settings)
@@ -51,11 +52,11 @@ local lspconfig = require 'lspconfig'
 
 for _, server in pairs(servers) do
     local opts = {
-        on_attach = require 'plugins.lsp.handlers'.on_attach,
-        capabilities = require 'plugins.lsp.handlers'.capabilities,
+        on_attach = require 'helios.plugins.configs.lsp.handlers'.on_attach,
+        capabilities = require 'helios.plugins.configs.lsp.handlers'.capabilities,
     }
 
-    local has_custom_opts, server_custom_opts = pcall(require, 'plugins.lsp.settings.' .. server)
+    local has_custom_opts, server_custom_opts = pcall(require, 'helios.plugins.lsp.settings.' .. server)
     if has_custom_opts then
         opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
     end
