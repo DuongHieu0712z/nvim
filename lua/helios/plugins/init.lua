@@ -98,7 +98,6 @@ local plugins = {
     -- Treesitter
     ['nvim-treesitter/nvim-treesitter'] = {
         module = 'nvim-treesitter',
-        run = 'TSUpdate',
         event = { 'BufRead', 'BufNewFile' },
         cmd = {
             'TSInstall',
@@ -115,6 +114,9 @@ local plugins = {
             'TSDisable',
             'TSModuleInfo',
         },
+        run = function()
+            require 'nvim-treesitter.install'.update { with_sync = true }
+        end,
         -- setup = function() utils.on_file_open 'nvim-treesitter' end,
         config = function()
             require 'helios.plugins.configs.treesitter'
