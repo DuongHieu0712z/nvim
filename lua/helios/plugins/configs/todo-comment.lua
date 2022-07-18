@@ -3,35 +3,38 @@ if not status_ok then
     return
 end
 
+local diag_icons = require 'helios.theme.icons'.diagnostics
+local diag_colors = require 'helios.theme.colors'.diagnostics
+
 todo_comment.setup {
     signs = true,
     sign_priority = 8,
 
     keywords = {
         FIX = {
-            icon = '',
+            icon = diag_icons.debug,
             color = 'error',
             alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE', 'fix', 'fixme', 'bug' },
         },
         TODO = {
-            icon = '',
+            icon = diag_icons.todo,
             color = 'info',
         },
         HACK = {
-            icon = '',
+            icon = diag_icons.hack,
             color = 'warning',
         },
         WARN = {
-            icon = '',
+            icon = diag_icons.warning,
             color = 'warning',
             alt = { 'WARNING', 'XXX' },
         },
         PERF = {
-            icon = '',
+            icon = diag_icons.performance,
             alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' },
         },
         NOTE = {
-            icon = '',
+            icon = diag_icons.note,
             color = 'hint',
             alt = { 'INFO' },
         },
@@ -50,11 +53,11 @@ todo_comment.setup {
     },
 
     colors = {
-        error = { 'DiagnosticError', 'ErrorMsg', '#dc2626' },
-        warning = { 'DiagnosticWarning', 'WarningMsg', '#fbbf24' },
-        info = { 'DiagnosticInfo', '#2563eb' },
-        hint = { 'DiagnosticHint', '#10b981' },
-        default = { 'Identifier', '#7c3aed' },
+        error   = { 'DiagnosticError', 'ErrorMsg', diag_colors.error },
+        warning = { 'DiagnosticWarning', 'WarningMsg', diag_colors.warning },
+        info    = { 'DiagnosticInfo', diag_colors.information },
+        hint    = { 'DiagnosticHint', diag_colors.hint },
+        default = { 'Identifier', diag_colors.default },
     },
 
     search = {

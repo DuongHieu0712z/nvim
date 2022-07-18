@@ -1,4 +1,3 @@
-
 -- vim.cmd [[
 --     augroup packer_user_config
 --         autocmd!
@@ -261,3 +260,5 @@ local plugins = {
 }
 
 require 'helios.core.packer'.run(plugins)
+
+-- require 'helios.plugins.configs.lsp'

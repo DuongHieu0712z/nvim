@@ -1,68 +1,25 @@
-local status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+local status_ok, lspconfig = pcall(require, 'lspconfig')
 if not status_ok then
     return
 end
 
-local servers = {
-    'clangd',
-    'omnisharp',
-    'jdtls',
-    'pylsp',
-    'pyright',
-    'html',
-    'cssls',
-    'cssmodules_ls',
-    'tsserver',
-    'eslint',
-    'emmet_ls',
-    'gopls',
-    'dartls',
-    'sumneko_lua',
-    'vimls',
-    'jsonls',
-    'lemminx',
-    'yamlls',
-}
+local setups = require 'helios.plugins.configs.lsp.setups'
 
-local settings = {
-    ensure_installed = servers,
-    ui = {
-        icons = {
-            server_installed = '✓',
-            server_pending = '➜',
-            server_uninstalled = '✗',
-        }
-    },
-    keymaps = {
-        toggle_server_expand = '<cr>',
-        install_server = 'i',
-        update_server = 'u',
-        check_server_version = 'c',
-        update_all_servers = 'U',
-        check_outdated_servers = 'C',
-        uninstall_server = 'X',
-    },
-    log_level = vim.log.levels.INFO,
-    -- max_concurrent_installers = 10,
-}
-
-lsp_installer.setup(settings)
-
-local lspconfig = require 'lspconfig'
-
-for _, server in pairs(servers) do
+for _, server in pairs(setups.servers) do
     local opts = {
-        on_attach = require 'helios.plugins.configs.lsp.handlers'.on_attach,
-        capabilities = require 'helios.plugins.configs.lsp.handlers'.capabilities,
+        on_attach = setups.on_attach,
+        capabilities = setups.capabilities,
+        handlers = setups.handlers,
     }
 
-    local has_custom_opts, server_custom_opts = pcall(require, 'helios.plugins.lsp.settings.' .. server)
+    local has_custom_opts, server_custom_opts = pcall(require, 'helios.plugins.lsp.providers.' .. server)
     if has_custom_opts then
         opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
     end
 
     lspconfig[server].setup(opts)
 end
+
 
 local status_ok, schema = pcall(require, 'schemastore')
 if not status_ok then

@@ -11,9 +11,11 @@ local filetypes = {
     'javascriptreact',
     'typescript',
     'typescriptreact',
+    'markdown',
     'json',
     'xml',
     'yaml',
+    'toml',
 }
 
 local options = {

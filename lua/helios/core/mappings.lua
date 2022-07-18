@@ -328,7 +328,9 @@ M.mappings.whichkey = {
     },
 }
 
-M.lsp_mappings = {
+M.lsp_mappings = {}
+
+M.lsp_mappings.general = {
     n = {
         ['gD'] = {
             function()
@@ -431,6 +433,18 @@ M.lsp_mappings = {
             end,
             ' Diagnostic setloclist',
         },
+    },
+}
+
+M.aerial_mappings = {}
+
+M.aerial_mappings.general = {
+    n = {
+        ['<leader>c'] = { '<cmd>AerialToggle!<cr>', '' },
+        ['{'] = { '<cmd>AerialPrev<cr>', '' },
+        ['}'] = { '<cmd>AerialNext<cr>', '' },
+        ['[['] = { '<cmd>AerialPrevUp<cr>', '' },
+        [']]'] = { '<cmd>AerialNextUp<cr>', '' },
     },
 }
 

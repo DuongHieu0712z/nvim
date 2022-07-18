@@ -3,13 +3,42 @@ if not status_ok then
     return
 end
 
-indent.setup {
-    use_treesitter = true,
+local set_hl = require 'helios.core.utils'.set_highlight
+local colors = require 'helios.theme.colors'
 
-    show_current_context = true,
-    show_current_context_start = true,
-    show_first_indent_level = true,
-    show_trailing_blankline_indent = false,
+local indent_hl = colors.indents
+local bg        = indent_hl.backgrounds
+local ctx       = indent_hl.context
+
+local highlight_list = {}
+
+for i, v in ipairs(indent_hl) do
+    local name = 'IndentBlanklineIndent' .. i
+    table.insert(highlight_list, name)
+    set_hl(name, {
+        fg        = v,
+        bg        = bg[i % 2 + 1],
+        nocombine = true,
+    })
+end
+
+set_hl('IndentBlanklineContextChar', { fg = ctx, nocombine = true })
+set_hl('IndentBlanklineContextSpaceChar', { fg = ctx, nocombine = true })
+set_hl('IndentBlanklineContextStart', { sp = ctx, underline = true })
+
+indent.setup {
+    enabled              = true,
+    use_treesitter       = true,
+    use_treesitter_scope = true,
+
+    show_end_of_line               = false,
+    show_first_indent_level        = true,
+    show_trailing_blankline_indent = true,
+    show_foldtext                  = true,
+
+    show_current_context                       = true,
+    show_current_context_start                 = true,
+    show_current_context_start_on_current_line = true,
 
     context_patterns = {
         'class',
@@ -34,28 +63,21 @@ indent.setup {
         'operation_type',
     },
 
-    char = '▏',
-    char_highlight_list = {
-        'IndentBlanklineIndent1',
-        'IndentBlanklineIndent2',
-        'IndentBlanklineIndent3',
-        'IndentBlanklineIndent4',
-        'IndentBlanklineIndent5',
-        'IndentBlanklineIndent6',
-    },
-    space_char = ' ',
-    space_char_highlight_list = {
-        'IndentBlanklineIndent1',
-        'IndentBlanklineIndent2',
-        'IndentBlanklineIndent3',
-        'IndentBlanklineIndent4',
-        'IndentBlanklineIndent5',
-        'IndentBlanklineIndent6',
-    },
+    char                   = '▏',
+    char_blankline         = '',
+    space_char_blankline   = ' ',
+    context_char           = '▏',
+    context_char_blankline = '▏',
+
+    char_highlight_list                 = highlight_list,
+    space_char_highlight_list           = highlight_list,
+    space_char_blankline_highlight_list = {},
+    context_highlight_list              = {},
 
     buftype_exclude = {
         'terminal',
         'nofile',
+        'quickfix',
     },
     filetype_exclude = {
         'lspinfo',
@@ -76,15 +98,3 @@ indent.setup {
         '',
     },
 }
-
-local cmd = vim.cmd
-
-cmd [[hi IndentBlanklineIndent1 guifg=#ff8888 guibg=#1f1f1f]]
-cmd [[hi IndentBlanklineIndent2 guifg=#88ffff guibg=#1a1a1a]]
-cmd [[hi IndentBlanklineIndent3 guifg=#88ff88 guibg=#1f1f1f]]
-cmd [[hi IndentBlanklineIndent4 guifg=#ff88ff guibg=#1a1a1a]]
-cmd [[hi IndentBlanklineIndent5 guifg=#8888ff guibg=#1f1f1f]]
-cmd [[hi IndentBlanklineIndent6 guifg=#ffff88 guibg=#1a1a1a]]
-
-cmd [[hi IndentBlanklineContextStart gui=underline guisp=#9932bc]]
-cmd [[hi IndentBlanklineContextChar  guifg=#9932bc]]

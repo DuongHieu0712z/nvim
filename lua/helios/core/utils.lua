@@ -1,23 +1,27 @@
 local M = {}
 
 local autocmd = vim.api.nvim_create_autocmd
-local merge_tb = vim.tbl_deep_extend
+
+local function merge_table(...)
+    return vim.tbl_deep_extend('force', ...)
+end
 
 M.lazy_load = function(tb)
     autocmd(tb.events, {
         pattern = '*',
         group = vim.api.nvim_create_augroup(tb.augroup_name, {}),
         callback = function()
-            if tb.condition() then
-                vim.api.nvim_del_augroup_by_name(tb.augroup_name)
-                if tb.plugins ~= 'nvim-treesitter' then
-                    vim.defer_fn(function()
-                        vim.cmd('PackerLoad ' .. tb.plugins)
-                    end, 0)
-                else
-                    vim.cmd('PackerLoad ' .. tb.plugins)
-                end
-            end
+            -- if tb.condition() then
+            --     vim.api.nvim_del_augroup_by_name(tb.augroup_name)
+            --     if tb.plugins ~= 'nvim-treesitter' then
+            --         vim.defer_fn(function()
+            --             vim.cmd('PackerLoad ' .. tb.plugins)
+            --         end, 0)
+            --     else
+            --         vim.cmd('PackerLoad ' .. tb.plugins)
+            --     end
+            -- end
+            print('setup ' .. tb.augroup_name)
         end,
     })
 end
@@ -53,8 +57,14 @@ M.load_mappings = function(mappings, mapping_opts)
     for _, section_mappings in pairs(mappings) do
         for mode, mode_mappings in pairs(section_mappings) do
             for keybind, mapping_info in pairs(mode_mappings) do
-                local default_opts = merge_tb('force', { mode = mode }, mapping_opts or {})
-                local opts = merge_tb('force', default_opts, mapping_info.opts or {})
+                local opts = {
+                    mode = mode,
+                    silent = true,
+                    noremap = true,
+                    nowait = true,
+                }
+                opts = merge_table(opts, mapping_opts or {})
+                opts = merge_table(opts, mapping_info.opts or {})
 
                 if mapping_info.opts then
                     mapping_info.opts = nil
@@ -64,6 +74,10 @@ M.load_mappings = function(mappings, mapping_opts)
             end
         end
     end
+end
+
+M.set_highlight = function(name, val)
+    vim.api.nvim_set_hl(0, name, val)
 end
 
 return M

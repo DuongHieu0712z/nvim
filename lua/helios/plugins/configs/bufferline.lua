@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local diag_icons = require 'helios.theme.icons'.diagnostics
+local diag_colors = require 'helios.theme.colors'.diagnostics
 
 bufferline.setup {
     options = {
@@ -37,7 +38,7 @@ bufferline.setup {
                 hint = diag_icons.hint,
             }
             for e, n in pairs(diagnostics_dict) do
-                str = str .. n .. sym[e]
+                str = str .. n .. sym[e] .. ' '
             end
             return str
         end,
@@ -73,42 +74,42 @@ bufferline.setup {
 
         custom_areas = {
             right = function()
-                local result = {}
-                local seve = vim.diagnostic.severity
-                local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
-                local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
-                local info = #vim.diagnostic.get(0, { severity = seve.INFO })
-                local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
+                local res = {}
+                local severity = vim.diagnostic.severity
 
+                local error = #vim.diagnostic.get(0, { severity = severity.ERROR })
                 if error ~= 0 then
-                    table.insert(result, {
-                        text = diag_icons.error .. error .. ' ',
-                        guifg = '#e55561'
+                    table.insert(res, {
+                        text = ' ' .. diag_icons.error .. error,
+                        guifg = diag_colors.error,
                     })
                 end
 
+                local warning = #vim.diagnostic.get(0, { severity = severity.WARN })
                 if warning ~= 0 then
-                    table.insert(result, {
-                        text = diag_icons.warning .. warning .. ' ',
-                        guifg = '#e2b86b'
+                    table.insert(res, {
+                        text = ' ' .. diag_icons.warning .. warning,
+                        guifg = diag_colors.warning,
                     })
                 end
 
+                local info = #vim.diagnostic.get(0, { severity = severity.INFO })
                 if info ~= 0 then
-                    table.insert(result, {
-                        text = diag_icons.information .. info .. ' ',
-                        guifg = '#48b0bd'
+                    table.insert(res, {
+                        text = ' ' .. diag_icons.information .. info,
+                        guifg = diag_colors.information,
                     })
                 end
 
+                local hint = #vim.diagnostic.get(0, { severity = severity.HINT })
                 if hint ~= 0 then
-                    table.insert(result, {
-                        text = diag_icons.hint .. hint .. ' ',
-                        guifg = '#bf68d9'
+                    table.insert(res, {
+                        text = ' ' .. diag_icons.hint .. hint,
+                        guifg = diag_colors.hint,
                     })
                 end
 
-                return result
+                return res
             end,
         },
     },

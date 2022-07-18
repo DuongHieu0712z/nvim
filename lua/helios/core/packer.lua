@@ -4,7 +4,6 @@ M.first_install = false
 
 M.bootstrap = function()
     local fn = vim.fn
-    local cmd = vim.cmd
 
     local packer_ok, packer = pcall(require, 'packer')
 
@@ -22,8 +21,6 @@ M.bootstrap = function()
         }
         print 'Installing packer close and reopen Neovim...'
 
-        cmd [[packadd packer.nvim]]
-
         packer_ok, packer = pcall(require, 'packer')
         if packer_ok then
             print 'Packer cloned successfully.'
@@ -37,8 +34,16 @@ M.bootstrap = function()
 end
 
 M.options = {
+    ensure_dependencies = true,
     auto_clean = true,
     compile_on_sync = true,
+    auto_reload_compiled = true,
+    autoremove = true,
+
+    snapshot_path = vim.fn.stdpath 'cache' .. '/packer.nvim',
+    package_root = vim.fn.stdpath 'data' .. 'site/pack',
+    compile_path = vim.fn.stdpath 'config' .. '/plugin/packer_compiled.lua',
+
     display = {
         open_fn = function()
             return require 'packer.util'.float { border = 'rounded' }
@@ -63,6 +68,7 @@ M.run = function(plugins)
     end
 
     packer.init(M.options)
+    packer.reset()
     packer.startup(function(use)
         for key, plugin in pairs(plugins) do
             if type(key) == 'string' and not plugin[1] then
@@ -75,9 +81,6 @@ M.run = function(plugins)
             packer.sync()
         end
     end)
-
-    local ok, _ = pcall(require, 'packer_compiled')
-    print(ok)
 end
 
 return M

@@ -23,11 +23,7 @@ local setup = {
         },
     },
 
-    icons = {
-        breadcrumb = '»',
-        separator = '➜',
-        group = '+',
-    },
+    icons = require 'helios.theme.icons'.whichkey,
 
     popup_mappings = {
         scroll_down = '<c-d>',

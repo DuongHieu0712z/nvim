@@ -114,12 +114,7 @@ nvim_tree.setup {
 
         indent_markers = {
             enable = true,
-            icons = {
-                none   = '  ',
-                edge   = '│ ',
-                item   = '├ ',
-                corner = '└ ',
-            },
+            icons = icons.indent_markers,
         },
 
         icons = {
@@ -136,18 +131,9 @@ nvim_tree.setup {
             },
 
             glyphs = {
-                default = '',
-                symlink = '',
-                folder = {
-                    arrow_open = icons.folders.arrow_open,
-                    arrow_closed = icons.folders.arrow_closed,
-                    default = icons.folders.default,
-                    open = icons.folders.open,
-                    empty = icons.folders.empty,
-                    empty_open = icons.folders.empty_open,
-                    symlink = icons.folders.symlink,
-                    symlink_open = icons.folders.symlink_open,
-                },
+                default = icons.others.default,
+                symlink = icons.others.symlink,
+                folder = icons.folders,
                 git = {
                     unstaged = '',
                     staged = 'S',
@@ -201,7 +187,7 @@ nvim_tree.setup {
     },
 
     live_filter = {
-        prefix = '[]: ',
+        prefix = '[' .. icons.others.filter .. ']: ',
         always_show_folders = true,
     },
 
@@ -220,4 +206,4 @@ nvim_tree.setup {
     },
 }
 
--- See more https://github.com/kyazdani42/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt or :help nvim-tree.setup
+-- See more information at https://github.com/kyazdani42/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt or `:help nvim-tree.setup`

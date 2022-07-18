@@ -4,10 +4,8 @@ require 'helios.core.packer'.bootstrap()
 require 'helios.plugins'
 
 local mappings = require 'helios.core.mappings'.mappings
-local opts = require 'helios.core.mappings'.opts
 vim.defer_fn(function()
-    require 'helios.core.utils'.load_mappings(mappings, opts)
+    require 'helios.core.utils'.load_mappings(mappings)
 end, 0)
 
 require 'helios.core.autocommand'
--- require 'helios.theme.colors'

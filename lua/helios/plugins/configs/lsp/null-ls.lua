@@ -3,7 +3,7 @@ if not null_ls_status_ok then
     return
 end
 
--- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+-- See more information at https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 local code_actions = null_ls.builtins.code_actions
 local completion = null_ls.builtins.completion
 local diagnostics = null_ls.builtins.diagnostics
