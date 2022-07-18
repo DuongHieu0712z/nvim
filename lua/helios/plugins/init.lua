@@ -7,6 +7,13 @@
 
 local utils = require 'helios.core.utils'
 
+-- local require = function(module)
+--     local ok, _ = pcall(require, module)
+--     if ok then
+--         print(module .. ' ok')
+--     end
+-- end
+
 local plugins = {
     -- Plugin manager
     ['wbthomason/packer.nvim'] = {},
@@ -23,7 +30,9 @@ local plugins = {
     -- Notification enhancer
     ['rcarriga/nvim-notify'] = {
         event = 'VimEnter',
-        config = function() require 'helios.plugins.configs.notify' end,
+        config = function()
+            require 'helios.plugins.configs.notify'
+        end,
     },
 
     -- Neovim UI enhancer
@@ -32,19 +41,25 @@ local plugins = {
     -- Smarter Splits
     ['mrjones2014/smart-splits.nvim'] = {
         module = 'smart-splits',
-        config = function() require 'helios.plugins.configs.smart-splits' end,
+        config = function()
+            require 'helios.plugins.configs.smart-splits'
+        end,
     },
 
     -- Cursorhold fix
     ['antoinemadec/FixCursorHold.nvim'] = {
         event = { 'BufRead', 'BufNewFile' },
-        config = function() vim.g.cursorhold_updatetime = 100 end,
+        config = function()
+            vim.g.cursorhold_updatetime = 100
+        end,
     },
 
     -- Color highlighting
     ['norcalli/nvim-colorizer.lua'] = {
         event = { 'BufRead', 'BufNewFile' },
-        config = function() require 'helios.plugins.configs.colorizer' end,
+        config = function()
+            require 'helios.plugins.configs.colorizer'
+        end,
     },
 
     -- Icons
@@ -52,24 +67,32 @@ local plugins = {
 
     -- Theme
     ['navarasu/onedark.nvim'] = {
-        config = function() require 'helios.plugins.configs.theme' end,
+        config = function()
+            require 'helios.plugins.configs.theme'
+        end,
     },
 
     -- Lualine
     ['nvim-lualine/lualine.nvim'] = {
         after = 'nvim-web-devicons',
-        config = function() require 'helios.plugins.configs.lualine' end,
+        config = function()
+            require 'helios.plugins.configs.lualine'
+        end,
     },
 
     -- Bufferline
     ['akinsho/bufferline.nvim'] = {
         after = 'nvim-web-devicons',
-        config = function() require 'helios.plugins.configs.bufferline' end,
+        config = function()
+            require 'helios.plugins.configs.bufferline'
+        end,
     },
 
     -- Dashboard
     ['goolord/alpha-nvim'] = {
-        config = function() require 'helios.plugins.configs.alpha' end,
+        config = function()
+            require 'helios.plugins.configs.alpha'
+        end,
     },
 
     -- Treesitter
@@ -93,7 +116,9 @@ local plugins = {
             'TSModuleInfo',
         },
         -- setup = function() utils.on_file_open 'nvim-treesitter' end,
-        config = function() require 'helios.plugins.configs.treesitter' end,
+        config = function()
+            require 'helios.plugins.configs.treesitter'
+        end,
     },
     ['nvim-treesitter/nvim-treesitter-context'] = { after = 'nvim-treesitter' },
     ['nvim-treesitter/nvim-treesitter-refactor'] = { after = 'nvim-treesitter' },
@@ -110,7 +135,9 @@ local plugins = {
     ['neovim/nvim-lspconfig'] = {
         after = 'nvim-lsp-installer',
         module = 'lspconfig',
-        config = function() require 'helios.plugins.configs.lsp' end,
+        config = function()
+            require 'helios.plugins.configs.lsp'
+        end,
     },
     ['jose-elias-alvarez/null-ls.nvim'] = {},
     ['stevearc/aerial.nvim'] = {
@@ -118,7 +145,7 @@ local plugins = {
         cmd = { 'AerialToggle', 'AerialOpen', 'AerialInfo' },
         config = function()
             require 'helios.plugins.configs.aerial'
-            require('telescope').load_extension 'aerial'
+            require 'telescope'.load_extension 'aerial'
         end,
     },
 
@@ -129,12 +156,16 @@ local plugins = {
     },
     ['hrsh7th/nvim-cmp'] = {
         after = 'friendly-snippets',
-        config = function() require 'helios.plugins.configs.cmp' end,
+        config = function()
+            require 'helios.plugins.configs.cmp'
+        end,
     },
     ['L3MON4D3/LuaSnip'] = {
         wants = 'friendly-snippets',
         after = 'nvim-cmp',
-        config = function() require 'helios.plugins.configs.luasnip' end,
+        config = function()
+            require 'helios.plugins.configs.luasnip'
+        end,
     },
     ['saadparwaiz1/cmp_luasnip'] = { after = 'LuaSnip' },
     ['hrsh7th/cmp-nvim-lsp'] = { after = 'cmp_luasnip' },
@@ -152,29 +183,39 @@ local plugins = {
             'NvimTreeToggle',
             'NvimTreeFocus',
         },
-        config = function() require 'helios.plugins.configs.nvimtree' end,
+        config = function()
+            require 'helios.plugins.configs.nvimtree'
+        end,
     },
 
     -- Git signs
     ['lewis6991/gitsigns.nvim'] = {
         event = 'BufEnter',
-        config = function() require 'helios.plugins.configs.gitsigns' end,
+        config = function()
+            require 'helios.plugins.configs.gitsigns'
+        end,
     },
 
     -- Telescope
     ['nvim-telescope/telescope.nvim'] = {
         module = 'telescope',
         cmd = 'Telescope',
-        config = function() require 'helios.plugins.configs.telescope' end,
+        config = function()
+            require 'helios.plugins.configs.telescope'
+        end,
     },
     ['nvim-telescope/telescope-fzf-native.nvim'] = {
         after = 'telescope.nvim',
         run = 'make',
-        config = function() require('telescope').load_extension 'fzf' end,
+        config = function()
+            require 'telescope'.load_extension 'fzf'
+        end,
     },
     ['nvim-telescope/telescope-fzy-native.nvim'] = {
         after = 'telescope.nvim',
-        config = function() require('telescope').load_extension 'fzy_native' end,
+        config = function()
+            require 'telescope'.load_extension 'fzy_native'
+        end,
     },
 
     -- Project
@@ -182,21 +223,27 @@ local plugins = {
         after = 'telescope.nvim',
         config = function()
             require 'helios.plugins.configs.project'
-            require('telescope').load_extension 'projects'
+            require 'telescope'.load_extension 'projects'
         end,
     },
 
     -- Illuminate
     ['RRethy/vim-illuminate'] = {
-        config = function() require 'helios.plugins.configs.illuminate' end,
+        config = function()
+            require 'helios.plugins.configs.illuminate'
+        end,
     },
 
     -- Terminal
     ['voldikss/vim-floaterm'] = {
-        config = function() require 'helios.plugins.configs.floaterm' end,
+        config = function()
+            require 'helios.plugins.configs.floaterm'
+        end,
     },
     ['akinsho/toggleterm.nvim'] = {
-        config = function() require 'helios.plugins.configs.toggleterm' end,
+        config = function()
+            require 'helios.plugins.configs.toggleterm'
+        end,
     },
 
     -- Get extra JSON schemas
@@ -206,30 +253,47 @@ local plugins = {
     ['windwp/nvim-autopairs'] = {
         after = 'nvim-cmp',
         event = 'InsertEnter',
-        config = function() require 'helios.plugins.configs.autopairs' end,
+        config = function()
+            require 'helios.plugins.configs.autopairs'
+        end,
     },
 
     -- Surround
     ['Mephistophiles/surround.nvim'] = {
-        config = function() require 'helios.plugins.configs.surround' end,
+        config = function()
+            require 'helios.plugins.configs.surround'
+        end,
     },
 
     -- Comment
     ['numToStr/Comment.nvim'] = {
         module = { 'Comment', 'Comment.api' },
         event = { 'BufRead', 'BufWinEnter' },
-        config = function() require 'helios.plugins.configs.comment' end,
+        config = function()
+            require 'helios.plugins.configs.comment'
+        end,
     },
     ['folke/todo-comments.nvim'] = {
         event = 'BufWinEnter',
         after = 'plenary.nvim',
-        config = function() require 'helios.plugins.configs.todo-comment' end,
+        config = function()
+            require 'helios.plugins.configs.todo-comment'
+        end,
     },
 
     -- Indent detection
     ['Darazaki/indent-o-matic'] = {
         event = 'BufReadPost',
-        config = function() require 'helios.plugins.configs.indent-o-matic' end,
+        config = function()
+            require 'helios.plugins.configs.indent-o-matic'
+        end,
+    },
+
+    -- Guess indent
+    ['nmac427/guess-indent.nvim'] = {
+        config = function()
+            require 'helios.plugins.configs.guess-indent'
+        end,
     },
 
     -- Indent blankline
@@ -237,25 +301,33 @@ local plugins = {
         opt = true,
         event = 'BufRead',
         -- setup = function() utils.on_file_open 'indent-blankline.nvim' end,
-        config = function() require 'helios.plugins.configs.indent-blankline' end,
+        config = function()
+            require 'helios.plugins.configs.indent-blankline'
+        end,
     },
 
     -- Smooth scrolling
     ['declancm/cinnamon.nvim'] = {
         event = { 'BufRead', 'BufNewFile' },
-        config = function() require 'helios.plugins.configs.cinnamon' end,
+        config = function()
+            require 'helios.plugins.configs.cinnamon'
+        end,
     },
 
     -- Smooth escaping
     ['max397574/better-escape.nvim'] = {
         event = 'InsertCharPre',
-        config = function() require 'helios.plugins.configs.better-escape' end,
+        config = function()
+            require 'helios.plugins.configs.better-escape'
+        end,
     },
 
     -- Whichkey
     ['folke/which-key.nvim'] = {
         module = 'which-key',
-        config = function() require 'helios.plugins.configs.whichkey' end,
+        config = function()
+            require 'helios.plugins.configs.whichkey'
+        end,
     },
 }
 
