@@ -64,6 +64,31 @@ treesitter.setup {
         enable = true,
     },
 
+    -- Treesitter playground
+    playground = {
+        enable = true,
+        disable = {},
+        updatetime = 25,
+        persist_queries = false,
+        -- keybindings = {
+        --     toggle_query_editor = 'o',
+        --     toggle_hl_groups = 'i',
+        --     toggle_injected_languages = 't',
+        --     toggle_anonymous_nodes = 'a',
+        --     toggle_language_display = 'I',
+        --     focus_language = 'f',
+        --     unfocus_language = 'F',
+        --     update = 'R',
+        --     goto_node = '<cr>',
+        --     show_help = '?',
+        -- },
+    },
+    query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = { 'BufWrite', 'CursorHold' },
+    },
+
     -- Treesitter refactor
     refactor = {
         highlight_definitions = {
@@ -73,19 +98,19 @@ treesitter.setup {
         highlight_current_scope = { enable = true },
         smart_rename = {
             enable = true,
-            keymaps = {
-                -- smart_rename = 'grr',
-            },
+            -- keymaps = {
+            --     smart_rename = 'grr',
+            -- },
         },
         navigation = {
             enable = true,
-            keymaps = {
-                -- goto_definition = 'gnd',
-                -- list_definitions = 'gnD',
-                -- list_definitions_toc = 'gO',
-                -- goto_next_usage = '<a-*>',
-                -- goto_previous_usage = '<a-#>',
-            },
+            -- keymaps = {
+            --     goto_definition = 'gnd',
+            --     list_definitions = 'gnD',
+            --     list_definitions_toc = 'gO',
+            --     goto_next_usage = '<a-*>',
+            --     goto_previous_usage = '<a-#>',
+            -- },
         },
     },
 
@@ -94,45 +119,46 @@ treesitter.setup {
         enable = true,
         select = {
             enable = true,
-            keymaps = {
-                -- ['af'] = '@function.outer',
-                -- ['if'] = '@function.inner',
-                -- ['ac'] = '@class.outer',
-                -- ['ic'] = '@class.inner',
-            },
+            lookahead = true,
+            -- keymaps = {
+            --     ['af'] = '@function.outer',
+            --     ['if'] = '@function.inner',
+            --     ['ac'] = '@class.outer',
+            --     ['ic'] = '@class.inner',
+            -- },
         },
         swap = {
             enable = true,
-            swap_next = {
-                -- ['<leader>a'] = { '@parameter.inner' },
-            },
-            swap_previous = {
-                -- ['<leader>A'] = { '@parameter.inner' },
-            },
+            -- swap_next = {
+            --     ['<leader>a'] = { '@parameter.inner' },
+            -- },
+            -- swap_previous = {
+            --     ['<leader>A'] = { '@parameter.inner' },
+            -- },
         },
         move = {
             enable = true,
             set_jumps = true,
-            goto_next_start = {
-                -- [']m'] = { '@function.outer', '@class.outer' },
-            },
-            goto_next_end = {
-                -- [']M'] = { '@function.outer', '@class.outer' },
-            },
-            goto_previous_start = {
-                -- ['[m'] = { '@function.outer', '@class.outer' },
-            },
-            goto_previous_end = {
-                -- ['[M'] = { '@function.outer', '@class.outer' },
-            },
+            -- goto_next_start = {
+            --     [']m'] = { '@function.outer', '@class.outer' },
+            -- },
+            -- goto_next_end = {
+            --     [']M'] = { '@function.outer', '@class.outer' },
+            -- },
+            -- goto_previous_start = {
+            --     ['[m'] = { '@function.outer', '@class.outer' },
+            -- },
+            -- goto_previous_end = {
+            --     ['[M'] = { '@function.outer', '@class.outer' },
+            -- },
         },
         lsp_interop = {
             enable = true,
             border = 'rounded',
-            peek_definition_code = {
-                -- ['<leader>df'] = '@function.outer',
-                -- ['<leader>dF'] = '@class.outer',
-            },
+            -- peek_definition_code = {
+            --     ['<leader>df'] = '@function.outer',
+            --     ['<leader>dF'] = '@class.outer',
+            -- },
         },
     },
 
@@ -144,15 +170,20 @@ treesitter.setup {
         highlight_self = false,
         goto_right_end = false,
         fallback_cmd_normal = [[call matchit#Match_wrapper('', 1, 'n')]],
-        keymaps = {
-            -- goto_partner = '<leader>%',
-            -- delete_balanced = 'X',
-        },
+        -- keymaps = {
+        --     goto_partner = '<leader>%',
+        --     delete_balanced = 'X',
+        -- },
         delete_balanced = {
             only_on_first_char = false,
             fallback_cmd_normal = nil,
             longest_partner = false,
         },
+    },
+
+    -- Treesitter endwise
+    endwise = {
+        enable = true,
     },
 
     -- Treesitter commentstring
@@ -165,7 +196,7 @@ treesitter.setup {
     -- Treesitter rainbow
     rainbow = {
         enable = true,
-        -- disable = {},
+        disable = {},
         extended_mode = false,
         max_file_lines = nil,
         -- colors = {},
