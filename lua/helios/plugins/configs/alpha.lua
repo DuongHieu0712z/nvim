@@ -6,12 +6,14 @@ end
 local dashboard = require 'alpha.themes.dashboard'
 
 dashboard.section.header.val = {
-    [[███╗░░██╗███████╗░█████╗░██╗░░░██╗██╗███╗░░░███╗]],
-    [[████╗░██║██╔════╝██╔══██╗██║░░░██║██║████╗░████║]],
-    [[██╔██╗██║█████╗░░██║░░██║╚██╗░██╔╝██║██╔████╔██║]],
-    [[██║╚████║██╔══╝░░██║░░██║░╚████╔╝░██║██║╚██╔╝██║]],
-    [[██║░╚███║███████╗╚█████╔╝░░╚██╔╝░░██║██║░╚═╝░██║]],
-    [[╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝]],
+    [[                         ⣤⣤   ⣤⣤                          ⣤⣤                   ]],
+    [[⠛⣿⣿⣿⣿⠛  ⠛⣿⣿⣿⣿⠛⠛        ⠛⣿⣿⣿   ⣿⣿ ⠛⣿⣿⣿⣤   ⠛⣿⣿⣿⠛            ⣿⣿                   ]],
+    [[  ⣿⣿      ⣿⣿             ⣿⣿        ⣿⣿⣿⣤    ⣿                                   ]],
+    [[  ⣿⣿      ⣿⣿    ⣤⣤⣿⠛⣿⣿   ⣿⣿ ⠛⣿⣿⣿   ⣿ ⣿⣿⣿   ⣿ ⠛⣿⣿⠛   ⠛⣿⣿⠛⠛⣿⣿⣿ ⠛⣿⣿⣿⣿⣿⣿⣿⣿⣤⣿⣿⣿⣿⣿⣤  ]],
+    [[  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   ⣤⣿⠛   ⣿⣿  ⣿⣿   ⣿⣿   ⣿  ⠛⣿⣿⣤ ⣿   ⣿⣿   ⣤⣿    ⣿⣿   ⣿⣿    ⣿⣿    ⣿⣿  ]],
+    [[  ⣿⣿      ⣿⣿   ⣿⣿⠛⠛⠛⠛⠛⠛  ⣿⣿   ⣿⣿   ⣿   ⠛⣿⣿⣤⣿    ⣿⣿ ⣤⣿     ⣿⣿   ⣿⣿    ⣿⣿    ⣿⣿  ]],
+    [[  ⣿⣿      ⣿⣿   ⣿⣿⣤    ⣤  ⣿⣿   ⣿⣿   ⣿     ⣿⣿⣿     ⣿⣿⣿      ⣿⣿   ⣿⣿    ⣿⣿    ⣿⣿  ]],
+    [[⣤⣿⣿⣿⣿⣤  ⣤⣿⣿⣿⣿⣤⣤ ⠛⣿⣿⣿⣿⣿⠛⣤⣿⣿⣿⣿⣤⣿⣿⣿⣿⣤⣿⣿⣿⣤    ⣿⣿      ⣿     ⣤⣿⣿⣿⣿⣤⣿⣿⣿⣿  ⣿⣿⣿⣿  ⣿⣿⣿⣿⣤]],
 }
 
 dashboard.section.buttons.val = {
@@ -31,9 +33,9 @@ local function footer()
     local platform = ' Other'
     if vim.fn.has 'win32' == 1 then
         platform = ' Windows'
-    elseif vim.fn.has 'unix' then
+    elseif vim.fn.has 'unix' == 1 then
         platform = ' Linux'
-    elseif vim.fn.has 'macunix' then
+    elseif vim.fn.has 'macunix' == 1 then
         platform = ' MacOS'
     end
     return string.format('%s   v%d.%d.%d  %s', platform, version.major, version.minor, version.patch, datetime)
