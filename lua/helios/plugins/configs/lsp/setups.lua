@@ -99,6 +99,13 @@ local function lsp_symbol_outline(client, bufnr)
     end
 end
 
+local function  lsp_code_context(client, bufnr)
+    local ok, navic = pcall(require, 'nvim-navic')
+    if ok then
+        navic.attach(client, bufnr)
+    end
+end
+
 M.on_attach = function(client, bufnr)
     local vim_version = vim.version()
     if vim_version.minor > 7 then
@@ -116,6 +123,7 @@ M.on_attach = function(client, bufnr)
 
     lsp_highlight_document(client)
     lsp_symbol_outline(client, bufnr)
+    lsp_code_context(client, bufnr)
 end
 
 local function make_capabilities()

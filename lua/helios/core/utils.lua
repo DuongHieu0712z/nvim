@@ -2,7 +2,7 @@ local M = {}
 
 local autocmd = vim.api.nvim_create_autocmd
 
-local function merge_table(...)
+M.merge_table = function(...)
     return vim.tbl_deep_extend('force', ...)
 end
 
@@ -63,8 +63,8 @@ M.load_mappings = function(mappings, mapping_opts)
                     noremap = true,
                     nowait = true,
                 }
-                opts = merge_table(opts, mapping_opts or {})
-                opts = merge_table(opts, mapping_info.opts or {})
+                opts = M.merge_table(opts, mapping_opts or {})
+                opts = M.merge_table(opts, mapping_info.opts or {})
 
                 if mapping_info.opts then
                     mapping_info.opts = nil

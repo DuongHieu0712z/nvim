@@ -7,13 +7,6 @@
 
 local utils = require 'helios.core.utils'
 
--- local require = function(module)
---     local ok, _ = pcall(require, module)
---     if ok then
---         print(module .. ' ok')
---     end
--- end
-
 local plugins = {
     -- Plugin manager
     ['wbthomason/packer.nvim'] = {},
@@ -124,6 +117,8 @@ local plugins = {
     },
     ['nvim-treesitter/nvim-treesitter-context'] = { after = 'nvim-treesitter' },
     ['nvim-treesitter/nvim-treesitter-refactor'] = { after = 'nvim-treesitter' },
+    ['nvim-treesitter/nvim-treesitter-textobjects'] = { after = 'nvim-treesitter' },
+    ['theHamsta/nvim-treesitter-pairs'] = { after = 'nvim-treesitter' },
     ['JoosepAlviste/nvim-ts-context-commentstring'] = { after = 'nvim-treesitter' },
     ['p00f/nvim-ts-rainbow'] = { after = 'nvim-treesitter' },
     ['windwp/nvim-ts-autotag'] = { after = 'nvim-treesitter' },
@@ -142,12 +137,22 @@ local plugins = {
         end,
     },
     ['jose-elias-alvarez/null-ls.nvim'] = {},
+
+    -- Symbol outline
     ['stevearc/aerial.nvim'] = {
         module = 'aerial',
         cmd = { 'AerialToggle', 'AerialOpen', 'AerialInfo' },
         config = function()
             require 'helios.plugins.configs.aerial'
             require 'telescope'.load_extension 'aerial'
+        end,
+    },
+
+    -- Code context
+    ['SmiteshP/nvim-navic'] = {
+        after = 'nvim-lspconfig',
+        config = function()
+            require 'helios.plugins.configs.navic'
         end,
     },
 
@@ -334,5 +339,3 @@ local plugins = {
 }
 
 require 'helios.core.packer'.run(plugins)
-
--- require 'helios.plugins.configs.lsp'

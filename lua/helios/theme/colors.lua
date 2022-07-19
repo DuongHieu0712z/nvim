@@ -32,7 +32,7 @@ M.treesitter = {
     Constant           = { fg = '#daa520', bold = true },
     ConstBuiltin       = { fg = '#dac520', bold = true },
     ConstMacro         = { fg = '#daa540', bold = true },
-    Constructor        = { fg = '#ff4400', bold = true },
+    Constructor        = { fg = '#ff4500', bold = true },
     Debug              = '#e2b86b',
     Define             = { fg = '#bf68f9', bold = true },
     Error              = '#e55561',
@@ -92,6 +92,11 @@ M.treesitter = {
     TypeDefinition     = '#da55d3',
     Variable           = '#ffa500',
     VariableBuiltin    = '#df89d4',
+
+    -- Refactor
+    -- Definition      = '',
+    -- DefinitionUsage = '',
+    -- CurrentScope    = '',
 }
 
 M.rainbows = {
@@ -102,6 +107,35 @@ M.rainbows = {
     '#4169e1',
     '#a28be7',
     '#ba55d3',
+}
+
+M.navic = {
+    File          = { fg = '#ff7f50', bold = true, italic = true },
+    Module        = { fg = '#b22222', bold = true, italic = true },
+    Namespace     = { fg = '#dc143c', bold = true, italic = true },
+    Package       = { fg = '#ff6347', bold = true, italic = true },
+    Class         = { fg = '#32cd32', bold = true },
+    Struct        = { fg = '#9acd32', bold = true },
+    Interface     = { fg = '#adff2f', bold = true },
+    Enum          = { fg = '#6b8e23', bold = true },
+    Field         = '#48b0dd',
+    Property      = { fg = '#4fa6dd', bold = true },
+    Event         = '#00ff7f',
+    Function      = '#40b0fd',
+    Method        = { fg = '#60b0fd', italic = true },
+    Constructor   = { fg = '#ff4500', bold = true },
+    Variable      = '#ffa500',
+    Constant      = { fg = '#daa520', bold = true },
+    String        = '#8edd6b',
+    Number        = '#11eeee',
+    Boolean       = '#9370db',
+    Array         = '#db7093',
+    Object        = '#ba55d3',
+    Null          = '#9370db',
+    Key           = { fg = '#8a2be2', bold = true },
+    EnumMember    = { fg = '#808000', italic = true },
+    Operator      = '#ff69b4',
+    TypeParameter = '#fa8072',
 }
 
 return M

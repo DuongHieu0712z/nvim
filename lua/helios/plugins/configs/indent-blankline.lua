@@ -3,6 +3,7 @@ if not status_ok then
     return
 end
 
+
 local set_hl = require 'helios.core.utils'.set_highlight
 local colors = require 'helios.theme.colors'
 
@@ -16,15 +17,29 @@ for i, v in ipairs(indent_hl) do
     local name = 'IndentBlanklineIndent' .. i
     table.insert(highlight_list, name)
     set_hl(name, {
+        default   = true,
         fg        = v,
         bg        = bg[i % 2 + 1],
         nocombine = true,
     })
 end
 
-set_hl('IndentBlanklineContextChar', { fg = ctx, nocombine = true })
-set_hl('IndentBlanklineContextSpaceChar', { fg = ctx, nocombine = true })
-set_hl('IndentBlanklineContextStart', { sp = ctx, underline = true })
+set_hl('IndentBlanklineContextChar', {
+    default   = true,
+    fg        = ctx,
+    nocombine = true
+})
+set_hl('IndentBlanklineContextSpaceChar', {
+    default   = true,
+    fg        = ctx,
+    nocombine = true
+})
+set_hl('IndentBlanklineContextStart', {
+    default   = true,
+    sp        = ctx,
+    underline = true
+})
+
 
 indent.setup {
     enabled              = true,

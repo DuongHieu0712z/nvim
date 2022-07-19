@@ -40,8 +40,8 @@ local opts = {
     -- Color and background
     termguicolors = true,
     background    = 'dark',
-    guifont       = 'CaskaydiaCove NF:h12',
     colorcolumn   = '99999',
+    guifont       = 'CaskaydiaCove NF:h12',
 
     -- Line number
     number         = true,
@@ -122,7 +122,7 @@ local opts = {
     -- Other
     showcmd     = true, -- Show command
     showmode    = false, -- Show mode
-    showtabline = 2, -- Show tab line
+    showtabline = 0, -- Show tabline
 
     mouse       = 'a',
     completeopt = { 'menu', 'menuone', 'noselect' },

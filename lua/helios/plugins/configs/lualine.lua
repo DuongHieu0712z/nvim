@@ -54,6 +54,16 @@ local filename = {
     cond = hide_in_width,
 }
 
+local context = { 'code context' }
+local navic_ok, navic = pcall(require, 'nvim-navic')
+if navic_ok then
+    context = {
+        'code context',
+        navic.get_location,
+        cond = navic.is_available,
+    }
+end
+
 local diff = {
     'diff',
     colored = true,
@@ -107,7 +117,7 @@ lualine.setup {
     sections = {
         lualine_a = { mode },
         lualine_b = { branch, diagnostics },
-        lualine_c = { filename },
+        lualine_c = { filename, context },
         lualine_x = { diff },
         lualine_y = { space, 'encoding', 'fileformat', 'filetype' },
         lualine_z = { location, progress },
