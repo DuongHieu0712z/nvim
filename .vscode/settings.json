@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "vim",
+        "packer_bootstrap",
+    ],
+    "Lua.diagnostics.disable": [
+        "redefined-local",
+        "different-requires"
+    ]
+}

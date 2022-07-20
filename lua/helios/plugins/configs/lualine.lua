@@ -54,11 +54,11 @@ local filename = {
     cond = hide_in_width,
 }
 
-local context = { 'code context' }
+local context = {}
 local navic_ok, navic = pcall(require, 'nvim-navic')
 if navic_ok then
     context = {
-        'code context',
+        -- 'code context',
         navic.get_location,
         cond = navic.is_available,
     }

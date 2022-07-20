@@ -1,7 +1,6 @@
 require 'helios.core.options'
 
-require 'helios.core.packer'.bootstrap()
-require 'helios.plugins'
+require 'helios.load'
 
 local mappings = require 'helios.core.mappings'.mappings
 vim.defer_fn(function()

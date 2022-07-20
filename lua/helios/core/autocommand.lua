@@ -3,6 +3,11 @@ local cmd = vim.cmd
 local opt = vim.opt_local
 local autocmd = api.nvim_create_autocmd
 
+autocmd('BufWritePost', {
+    pattern = 'load.lua',
+    command = [[source <afile> | PackerCompile]],
+})
+
 autocmd('User', {
     pattern = 'AlphaReady',
     command = [[set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3]],
@@ -31,13 +36,13 @@ autocmd('BufEnter', {
     end,
 })
 
-autocmd('BufEnter', {
-    pattern = 'term://*',
-    callback = function()
-        cmd 'startinsert!'
-        cmd 'set cmdheight=1'
-    end,
-})
+-- autocmd('BufEnter', {
+--     pattern = 'term://*',
+--     callback = function()
+--         cmd 'startinsert!'
+--         cmd 'set cmdheight=1'
+--     end,
+-- })
 
 autocmd('FileType', {
     pattern = { 'gitcommit', 'markdown' },
@@ -55,7 +60,7 @@ autocmd('FileType', {
     end,
 })
 
-cmd [[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
+cmd [[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_'.tabpagenr() | quit | endif]]
 -- autocmd('BufEnter', {
 --     pattern = '*',
 --     command = [[if winnr('$') == 1 && bufname() == 'NvimTree_'.tabpagenr() | quit | endif]],

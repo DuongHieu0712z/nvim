@@ -34,15 +34,16 @@ M.bootstrap = function()
 end
 
 M.options = {
-    ensure_dependencies = true,
-    auto_clean = true,
-    compile_on_sync = true,
+    ensure_dependencies  = true,
+    auto_clean           = true,
+    compile_on_sync      = true,
     auto_reload_compiled = true,
-    autoremove = true,
+    autoremove           = true,
+    -- opt_default          = true,
 
-    snapshot_path = vim.fn.stdpath 'cache' .. '/packer.nvim',
-    package_root = vim.fn.stdpath 'data' .. 'site/pack',
-    compile_path = vim.fn.stdpath 'config' .. '/plugin/packer_compiled.lua',
+    -- snapshot_path = vim.fn.stdpath 'cache' .. '/packer.nvim',
+    -- package_root = vim.fn.stdpath 'data' .. 'site/pack',
+    -- compile_path = vim.fn.stdpath 'config' .. '/plugin/packer_compiled.lua',
 
     display = {
         open_fn = function()
@@ -55,11 +56,11 @@ M.options = {
     },
     profile = {
         enable = true,
-        threshold = 0.0001,
+        threshold = 1,
     },
 }
 
-M.run = function(plugins)
+M.load = function(plugins)
     vim.cmd [[packadd packer.nvim]]
 
     local packer_ok, packer = pcall(require, 'packer')
@@ -81,6 +82,7 @@ M.run = function(plugins)
             packer.sync()
         end
     end)
+    packer.compile()
 end
 
 return M

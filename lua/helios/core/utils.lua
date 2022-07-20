@@ -7,22 +7,23 @@ M.merge_table = function(...)
 end
 
 M.lazy_load = function(tb)
+    -- print('setup ')
     autocmd(tb.events, {
         pattern = '*',
-        group = vim.api.nvim_create_augroup(tb.augroup_name, {}),
         callback = function()
-            -- if tb.condition() then
-            --     vim.api.nvim_del_augroup_by_name(tb.augroup_name)
-            --     if tb.plugins ~= 'nvim-treesitter' then
-            --         vim.defer_fn(function()
-            --             vim.cmd('PackerLoad ' .. tb.plugins)
-            --         end, 0)
-            --     else
-            --         vim.cmd('PackerLoad ' .. tb.plugins)
-            --     end
-            -- end
+            if tb.condition() then
+                vim.api.nvim_del_augroup_by_name(tb.augroup_name)
+                if tb.plugins ~= 'nvim-treesitter' then
+                    vim.defer_fn(function()
+                        vim.cmd('PackerLoad ' .. tb.plugins)
+                    end, 0)
+                else
+                    vim.cmd('PackerLoad ' .. tb.plugins)
+                end
+            end
             print('setup ' .. tb.augroup_name)
         end,
+        group = vim.api.nvim_create_augroup(tb.augroup_name, { clear = true }),
     })
 end
 

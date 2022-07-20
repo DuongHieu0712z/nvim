@@ -1,10 +1,3 @@
--- vim.cmd [[
---     augroup packer_user_config
---         autocmd!
---         autocmd BufWritePost helios/plugins/init.lua source <afile> | PackerCompile
---     augroup end
--- ]]
-
 local utils = require 'helios.core.utils'
 
 local plugins = {
@@ -110,7 +103,9 @@ local plugins = {
         run = function()
             require 'nvim-treesitter.install'.update { with_sync = true }
         end,
-        -- setup = function() utils.on_file_open 'nvim-treesitter' end,
+        -- setup = function()
+        --     utils.on_file_open 'nvim-treesitter'
+        -- end,
         config = function()
             require 'helios.plugins.configs.treesitter'
         end,
@@ -128,8 +123,23 @@ local plugins = {
     -- Language server protocol
     ['williamboman/nvim-lsp-installer'] = {
         opt = true,
-        cmd = '',
-        -- setup = function() utils.on_file_open 'nvim-lsp-installer' end,
+        cmd = {
+            'LspInfo',
+            'LspStart',
+            'LspRestart',
+            'LspStop',
+            'LspInstall',
+            'LspUnInstall',
+            'LspUnInstallAll',
+            'LspInstall',
+            'LspInstallInfo',
+            'LspInstallLog',
+            'LspLog',
+            'LspPrintInstalled',
+        },
+        -- setup = function()
+        --     utils.on_file_open 'nvim-lsp-installer'
+        -- end,
     },
     ['neovim/nvim-lspconfig'] = {
         after = 'nvim-lsp-installer',
@@ -299,7 +309,9 @@ local plugins = {
     },
 
     -- Guess indent
-    ['nmac427/guess-indent.nvim'] = {
+    ['NMAC427/guess-indent.nvim'] = {
+        event = 'BufRead',
+        cmd = { 'GuessIndent' },
         config = function()
             require 'helios.plugins.configs.guess-indent'
         end,
@@ -309,7 +321,6 @@ local plugins = {
     ['lukas-reineke/indent-blankline.nvim'] = {
         opt = true,
         event = 'BufRead',
-        -- setup = function() utils.on_file_open 'indent-blankline.nvim' end,
         config = function()
             require 'helios.plugins.configs.indent-blankline'
         end,
@@ -340,4 +351,4 @@ local plugins = {
     },
 }
 
-require 'helios.core.packer'.run(plugins)
+return plugins
