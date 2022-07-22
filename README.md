@@ -46,9 +46,18 @@ rm -r -fo ~\AppData\Local\nvim
 rm -f -fo ~\AppData\Local\nvim-data
 ```
 
+## Treesitter supported languages
 
+See more information about supported languages [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
-## Null-LS
+## LSP
+
+See more information about server configurations [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) and available LSPs [here](https://github.com/williamboman/nvim-lsp-installer#available-lsps).
+
+## Null-ls
+
+See more information about null-ls builtin sources [here](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md).\
+See [BUILTIN_CONFIG](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md) to learn how to set up and configure these sources.
 
 ### Code actions
 
