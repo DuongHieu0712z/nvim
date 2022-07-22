@@ -17,7 +17,7 @@ To reduce the possibility of corruption, this configuration is only maintained f
 
 ## Install
 
-### Linux/macOS (Unix)
+### Linux/macOS
 
 ```
 git clone https://github.com/DuongHieu0712z/nvim.git ~/.config/nvim --depth 1 && nvim
@@ -31,7 +31,7 @@ git clone https://github.com/DuongHieu0712z/nvim.git ~\AppData\Local\nvim --dept
 
 ## Uninstall
 
-### Linux/macOS (Unix)
+### Linux/macOS
 
 ```
 rm -rf ~/.config/nvim
@@ -39,7 +39,7 @@ rm -rf ~/.local/share/nvim
 rm -rf ~/.cache/nvim
 ```
 
-### Windows
+### Windows (Powershell)
 
 ```
 rm -r -fo ~\AppData\Local\nvim

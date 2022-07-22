@@ -226,6 +226,85 @@ M.mappings.gitsigns = {
     },
 }
 
+M.mappings.refactoring = {
+    n = {
+        ['<leader>rb'] = {
+            function()
+                require 'refactoring'.refactor('Extract Block')
+            end,
+            '',
+        },
+        ['<leader>rB'] = {
+            function()
+                require 'refactoring'.refactor('Extract Block To File')
+            end,
+            '',
+        },
+        ['<leader>ri'] = {
+            function()
+                require 'refactoring'.refactor('Inline Variable')
+            end,
+            '',
+        },
+        ['<leader>rp'] = {
+            function()
+                require 'refactoring'.debug.printf { below = false }
+            end,
+            '',
+        },
+        ['<leader>rv'] = {
+            function()
+                require 'refactoring'.debug.print_var { normal = true }
+            end,
+            '',
+        },
+        ['<leader>rc'] = {
+            function()
+                require 'refactoring'.debug.cleanup {}
+            end,
+            '',
+        },
+    },
+    v = {
+        ['<leader>re'] = {
+            function()
+                require 'refactoring'.refactor('Extract Function')
+            end,
+            '',
+        },
+        ['<leader>rf'] = {
+            function()
+                require 'refactoring'.refactor('Extract Function To File')
+            end,
+            '',
+        },
+        ['<leader>rv'] = {
+            function()
+                require 'refactoring'.refactor('Extract Variable')
+            end,
+            '',
+        },
+        ['<leader>ri'] = {
+            function()
+                require 'refactoring'.refactor('Inline Variable')
+            end,
+            '',
+        },
+        ['<leader>rr'] = {
+            function()
+                require 'refactoring'.select_refactor('')
+            end,
+            '',
+        },
+        ['<leader>rV'] = {
+            function()
+                require 'refactoring'.debug.print_var {}
+            end,
+            '',
+        },
+    },
+}
+
 M.mappings.illuminate = {
     n = {
         ['<a-n>'] = { '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', '' },

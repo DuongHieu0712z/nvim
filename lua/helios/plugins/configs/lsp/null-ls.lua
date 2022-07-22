@@ -38,7 +38,7 @@ null_ls.setup({
             extra_args = { '--dialect', 'postgres' },
         }, -- sql
         diagnostics.stylelint,  -- css, scss, less, sass
-        diagnostics.textlint,
+        -- diagnostics.textlint,
         -- diagnostics.tidy,  -- html, xml
         diagnostics.trail_space,  -- trailing space
         diagnostics.vint,  -- vim

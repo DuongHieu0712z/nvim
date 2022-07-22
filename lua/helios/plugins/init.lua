@@ -120,6 +120,15 @@ local plugins = {
     ['p00f/nvim-ts-rainbow'] = { after = 'nvim-treesitter' },
     ['windwp/nvim-ts-autotag'] = { after = 'nvim-treesitter' },
 
+    -- Refactoring
+    ['ThePrimeagen/refactoring.nvim'] = {
+        after = 'nvim-treesitter',
+        config = function()
+            require 'helios.plugins.configs.refactoring'
+            require 'telescope'.load_extension 'refactoring'
+        end,
+    },
+
     -- Language server protocol
     ['williamboman/nvim-lsp-installer'] = {
         opt = true,
