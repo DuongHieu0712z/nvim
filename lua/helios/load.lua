@@ -3,3 +3,5 @@ local plugins = require 'helios.plugins'
 
 packer.bootstrap()
 packer.load(plugins)
+
+require 'helios.plugins.configs.lsp'

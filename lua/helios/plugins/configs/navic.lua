@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 local kind_icons = require 'helios.theme.icons'.kind_icons
+for k, v in pairs(kind_icons) do
+    kind_icons[k] = v .. ' '
+end
 
 navic.setup {
     icons = kind_icons,
@@ -30,11 +33,11 @@ for k, v in pairs(navic_hl) do
 end
 
 set_hl('NavicText', {
-    default = true,
-    fg = '#a0a8b7',
-    italic = true,
+    default   = true,
+    fg        = '#a0a8b7',
+    italic    = true,
 })
 set_hl('NavicSeparator', {
-    default = true,
-    fg = '#a0a8b7',
+    default   = true,
+    fg        = '#a0a8b7',
 })

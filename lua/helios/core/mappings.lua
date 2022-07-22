@@ -20,8 +20,8 @@ M.mappings.general = {
         -- Save and exit
         ['<leader>w'] = { '<cmd>w<cr>', ' Save file' },
         ['<leader>q'] = { '<cmd>q<cr>', ' Exit' },
-        ['<c-s>'] = { '<cmd>w!<cr>', ' Force save' },
-        ['<c-q>'] = { '<cmd>q!<cr>', ' Force quit' },
+        ['<c-s>']     = { '<cmd>w!<cr>', ' Force save' },
+        ['<c-q>']     = { '<cmd>q!<cr>', ' Force quit' },
 
         -- Window navigation
         ['<c-h>'] = { '<c-w>h', ' Window left' },
@@ -35,9 +35,9 @@ M.mappings.general = {
         ['<s-q>'] = { '<cmd>bdelete!<cr>', '﯇ Close buffer' },
 
         -- Resize split
-        ['<c-up>'] = { '<cmd>resize -2<cr>', 'Resize split up' },
-        ['<c-down>'] = { '<cmd>resize +2<cr>', 'Resize split down' },
-        ['<c-left>'] = { '<cmd>vertical resize -2<cr>', 'Resize split left' },
+        ['<c-up>']    = { '<cmd>resize -2<cr>', 'Resize split up' },
+        ['<c-down>']  = { '<cmd>resize +2<cr>', 'Resize split down' },
+        ['<c-left>']  = { '<cmd>vertical resize -2<cr>', 'Resize split left' },
         ['<c-right>'] = { '<cmd>vertical resize +2<cr>', 'Resize split right' },
 
         -- Move text
@@ -63,9 +63,9 @@ M.mappings.general = {
         ['<c-k>'] = { '<up>', ' Move up' },
         ['<c-l>'] = { '<right>', ' Move right' },
 
-        ['<a-left>'] = { [[<c-\><c-n><c-w>h]], '' },
-        ['<a-down>'] = { [[<c-\><c-n><c-w>j]], '' },
-        ['<a-up>'] = { [[<c-\><c-n><c-w>k]], '' },
+        ['<a-left>']  = { [[<c-\><c-n><c-w>h]], '' },
+        ['<a-down>']  = { [[<c-\><c-n><c-w>j]], '' },
+        ['<a-up>']    = { [[<c-\><c-n><c-w>k]], '' },
         ['<a-right>'] = { [[<c-\><c-n><c-w>l]], '' },
 
         -- Move text
@@ -74,7 +74,7 @@ M.mappings.general = {
     },
     t = {
         ['<esc>'] = { [[<c-\><c-n>]], 'Terminal normal mode' },
-        ['jk'] = { [[<c-\><c-n>]], 'Terminal normal mode' },
+        ['jk']    = { [[<c-\><c-n>]], 'Terminal normal mode' },
 
         -- Window navigation
         ['<c-h>'] = { [[<c-\><c-n><c-w>h]], 'Terminal left window navigation' },
@@ -93,8 +93,8 @@ M.mappings.general = {
     },
     x = {
         -- Move text
-        ['J'] = { ":move '>+1<cr>gv-gv", '' },
-        ['K'] = { ":move '<-2<cr>gv-gv", '' },
+        ['J']     = { ":move '>+1<cr>gv-gv", '' },
+        ['K']     = { ":move '<-2<cr>gv-gv", '' },
         ['<a-j>'] = { ":move '>+1<cr>gv-gv", '' },
         ['<a-k>'] = { ":move '<-2<cr>gv-gv", '' },
     },
@@ -120,7 +120,7 @@ M.mappings.nvimtree = {
 
 M.mappings.telescope = {
     n = {
-        ['<c-p>'] = { '<cmd>Telescope find_files<cr>', ' Find files' },
+        ['<c-p>']      = { '<cmd>Telescope find_files<cr>', ' Find files' },
         ['<leader>ff'] = { '<cmd>Telescope find_files<cr>', ' Find files' },
         ['<leader>fF'] = { '<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>', ' Find all files' },
 
@@ -389,7 +389,7 @@ M.lsp_mappings.general = {
             end,
             ' LSP type definition',
         },
-        ['<leader>lc'] = {
+        ['<leader>la'] = {
             function()
                 vim.lsp.buf.code_action()
             end,
@@ -401,20 +401,32 @@ M.lsp_mappings.general = {
             end,
             ' LSP formatting',
         },
+        ['<leader>lc'] = {
+            function()
+                vim.lsp.codelens.run()
+            end,
+            ' LSP code lens',
+        },
+        ['<leader>lr'] = {
+            function()
+                vim.lsp.buf.rename()
+            end,
+            ' LSP rename',
+        },
 
-        ['<leader>la'] = {
+        ['<leader>lA'] = {
             function()
                 vim.lsp.buf.add_workspace_folder()
             end,
             ' Add workspace folder',
         },
-        ['<leader>lr'] = {
+        ['<leader>lR'] = {
             function()
                 vim.lsp.buf.remove_workspace_folder()
             end,
             ' Remove workspace folder',
         },
-        ['<leader>ll'] = {
+        ['<leader>lL'] = {
             function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end,
@@ -441,11 +453,23 @@ M.aerial_mappings = {}
 M.aerial_mappings.general = {
     n = {
         ['<leader>c'] = { '<cmd>AerialToggle!<cr>', '' },
-        ['{'] = { '<cmd>AerialPrev<cr>', '' },
-        ['}'] = { '<cmd>AerialNext<cr>', '' },
-        ['[['] = { '<cmd>AerialPrevUp<cr>', '' },
-        [']]'] = { '<cmd>AerialNextUp<cr>', '' },
+        ['{']         = { '<cmd>AerialPrev<cr>', '' },
+        ['}']         = { '<cmd>AerialNext<cr>', '' },
+        ['[[']        = { '<cmd>AerialPrevUp<cr>', '' },
+        [']]']        = { '<cmd>AerialNextUp<cr>', '' },
     },
 }
+
+-- local debug_mappings = {
+--     ['<f9>'] = { '<cmd>lua require"dap".toggle_breakpoint()<cr>', 'Breakpoint' },
+--     ['<f5>'] = { '<cmd>lua require"dap".continue()<cr>', 'Continue' },
+--     ['<f11>'] = { '<cmd>lua require"dap".step_into()<cr>', 'Into' },
+--     ['<f10>'] = { '<cmd>lua require"dap".step_over()<cr>', 'Over' },
+--     ['<s-f11>'] = { '<cmd>lua require"dap".step_out()<cr>', 'Out' },
+--     ['<f1>'] = { '<cmd>lua require"dap".repl.toggle()<cr>', 'Repl' },
+--     ['<f3>'] = { '<cmd>lua require"dap".run_last()<cr>', 'Last' },
+--     ['<f2>'] = { '<cmd>lua require"dapui".toggle()<cr>', 'UI' },
+--     ['<f4>'] = { '<cmd>lua require"dap".terminate()<cr>', 'Exit' },
+-- }
 
 return M

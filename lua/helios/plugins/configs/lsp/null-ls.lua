@@ -14,11 +14,11 @@ null_ls.setup({
     debug = false,
     sources = {
         code_actions.eslint_d,  -- js, jsx, ts, tsx
-        -- code_actions.gitsigns,  -- git
-        -- code_actions.refactoring,  -- go, js, lua, py, ts
+        code_actions.gitsigns,  -- git
+        code_actions.refactoring,  -- go, js, lua, py, ts
 
-        -- completion.luasnip,  -- snippet
-        -- completion.tags,  -- tags
+        completion.luasnip,  -- snippet
+        completion.tags,  -- tags
 
         -- diagnostics.codespell,  -- find missspelling
         -- diagnostics.cppcheck,  -- c/c++

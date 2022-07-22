@@ -166,7 +166,7 @@ treesitter.setup {
     pairs = {
         enable = true,
         disable = {},
-        highlight_pair_events = { 'CusorMoved' },
+        highlight_pair_events = {},
         highlight_self = false,
         goto_right_end = false,
         fallback_cmd_normal = [[call matchit#Match_wrapper('', 1, 'n')]],

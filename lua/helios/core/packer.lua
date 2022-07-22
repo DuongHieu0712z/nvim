@@ -4,11 +4,11 @@ M.first_install = false
 
 M.bootstrap = function()
     local fn = vim.fn
+    local join_paths = require 'helios.core.utils'.join_paths
 
     local packer_ok, packer = pcall(require, 'packer')
-
     if not packer_ok then
-        local packer_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+        local packer_path = join_paths(fn.stdpath 'data', 'site', 'pack', 'packer', 'start', 'packer.nvim')
 
         print 'Cloning packer...'
         fn.system {
@@ -19,8 +19,9 @@ M.bootstrap = function()
             'https://github.com/wbthomason/packer.nvim',
             packer_path
         }
-        print 'Installing packer close and reopen Neovim...'
+        print 'Installing packer... Close and reopen Neovim...'
 
+        vim.cmd [[packadd packer.nvim]]
         packer_ok, packer = pcall(require, 'packer')
         if packer_ok then
             print 'Packer cloned successfully.'
@@ -69,7 +70,7 @@ M.load = function(plugins)
     end
 
     packer.init(M.options)
-    packer.reset()
+    -- packer.reset()
     packer.startup(function(use)
         for key, plugin in pairs(plugins) do
             if type(key) == 'string' and not plugin[1] then
@@ -82,7 +83,7 @@ M.load = function(plugins)
             packer.sync()
         end
     end)
-    packer.compile()
+    -- packer.compile()
 end
 
 return M

@@ -1,7 +1,18 @@
 local M = {}
 
 local autocmd = vim.api.nvim_create_autocmd
+local path_sep = vim.loop.os_uname().version:match 'Windows' and '\\' or '/'
 
+---Join path segments that were passed as input
+---@param ... string
+---@return string
+M.join_paths = function(...)
+    return table.concat({ ... }, path_sep)
+end
+
+---Merge table
+---@param ... table
+---@return table
 M.merge_table = function(...)
     return vim.tbl_deep_extend('force', ...)
 end
@@ -39,6 +50,9 @@ M.on_file_open = function(plugin_name)
     }
 end
 
+---Set mappings
+---@param mappings table
+---@param mapping_opts? table
 M.load_mappings = function(mappings, mapping_opts)
     local map_func
     local ok, which_key = pcall(require, 'which-key')
@@ -77,6 +91,9 @@ M.load_mappings = function(mappings, mapping_opts)
     end
 end
 
+---Set highlight color
+---@param name string
+---@param val table
 M.set_highlight = function(name, val)
     vim.api.nvim_set_hl(0, name, val)
 end
