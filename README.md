@@ -2,6 +2,12 @@
 
 ## Introduction
 
+This repo hosts my Nvim configuration for Linux, macOS, and Windows.
+
+My configurations are heavily documented to make it as clear as possible. Although you can clone the entire repository and use it, it is not recommended. Good configurations are personal. Everyone should have their own unique configuration file. You are encouraged to clone from this repo the part you want and add it to your own config.
+
+To reduce the possibility of corruption, this configuration is only maintained for [the latest nvim stable release](https://github.com/neovim/neovim/releases/tag/stable). No effort is required to maintain backward compatibility.
+
 ## Prerequisites
 
 - Make sure you have installed the latest version of [`Neovim v0.7+`](https://github.com/neovim/neovim/wiki/Installing-Neovim).
