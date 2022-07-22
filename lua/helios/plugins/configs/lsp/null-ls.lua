@@ -13,49 +13,57 @@ local hover = null_ls.builtins.hover
 null_ls.setup({
     debug = false,
     sources = {
-        code_actions.eslint_d,  -- js, jsx, ts, tsx
-        code_actions.gitsigns,  -- git
-        code_actions.refactoring,  -- go, js, lua, py, ts
+        code_actions.eslint_d, -- js, jsx, ts, tsx
+        code_actions.gitsigns, -- git
+        code_actions.proselint, -- markdown, tex
+        code_actions.refactoring, -- go, js, lua, py, ts
 
-        completion.luasnip,  -- snippet
-        completion.tags,  -- tags
+        completion.luasnip, -- snippet
+        completion.tags, -- tags
 
         -- diagnostics.codespell,  -- find missspelling
         -- diagnostics.cppcheck,  -- c/c++
         -- diagnostics.cspell,  -- spell checker
-        -- diagnostics.eslint_d,  -- js, jsx, ts, tsx
+        diagnostics.eslint_d, -- js, jsx, ts, tsx
         -- diagnostics.flake8,  -- py
-        -- diagnostics.gitlint,  -- git
         -- diagnostics.golangci_lint,  -- go
-        -- diagnostics.jsonlint,  -- json
-        -- diagnostics.luacheck,  -- lua
-        -- diagnostics.markdownlint,  -- markdown
+        diagnostics.jsonlint, -- json
+        diagnostics.luacheck, -- lua
+        diagnostics.markdownlint, -- markdown
         -- diagnostics.misspell,  -- misspell
-        -- diagnostics.pylint,  -- py
+        diagnostics.proselint, -- markdown, tex
+        diagnostics.pylint, -- py
         -- diagnostics.revive,  -- go
-        -- diagnostics.stylelint,  -- css, scss, less, sass
+        diagnostics.sqlfluff.with {
+            extra_args = { '--dialect', 'postgres' },
+        }, -- sql
+        diagnostics.stylelint,  -- css, scss, less, sass
+        diagnostics.textlint,
         -- diagnostics.tidy,  -- html, xml
-        -- diagnostics.trail_space,  -- trailing space
-        -- diagnostics.vint,  -- vim
+        diagnostics.trail_space,  -- trailing space
+        diagnostics.vint,  -- vim
         -- diagnostics.yamllint,  -- yaml
 
-        formatting.astyle,  -- c/c++, c#, java
+        formatting.astyle, -- c/c++, c#, java
         formatting.black, -- python
         -- formatting.clang_format,  -- c/c++, c#, java
         -- formatting.codespell,  -- fix missspelling
-        formatting.dart_format,  -- dart
+        formatting.dart_format, -- dart
         -- formatting.eslint_d,  -- js, jsx, ts, tsx
-        formatting.gofmt,  -- go
-        -- formatting.goimports,  -- go imports
-        formatting.json_tool,  -- json
-        -- formatting.lua_format, -- lua
-        -- formatting.markdownlint,  -- markdown
-        formatting.prettier,  -- prettier
+        formatting.gofmt, -- go
+        formatting.goimports,  -- go imports
+        formatting.json_tool, -- json
+        formatting.lua_format, -- lua
+        formatting.markdownlint,  -- markdown
+        formatting.prettier,
+        -- formatting.prettierd,
+        formatting.sqlfluff, -- sql
+        -- formatting.sql_formatter,
         -- formatting.stylelint,  -- css, scss, less, sass
-        -- formatting.stylua,  -- lua
         -- formatting.tidy,  -- html, xml
-        -- formatting.trim_whitespace,  -- trim whitespace
+        formatting.trim_newlines,
+        formatting.trim_whitespace,
 
-        hover.dictionary, -- md, txt
+        hover.dictionary, -- markdown, text
     },
 })

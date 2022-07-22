@@ -1,11 +1,79 @@
-# Nvim
+# My Neovim Config
+
+## Introduction
+
+## Prerequisites
+
+- Make sure you have installed the latest version of [`Neovim v0.7+`](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+- Have [`git`](https://git-scm.com/downloads), [`python`](https://www.python.org/downloads/), `pip`, [`node`](https://nodejs.org/en/download/) and `npm` installed on your system.
+- Terminal with true color support (for the default theme, otherwise it is dependent on the theme you are using).
+- Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config use font [CaskaydiaCove NF](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
 
 ## Install
 
-### Linux/MacOS (Unix)
+### Linux/macOS (Unix)
 
-`git clone https://github.com/DuongHieu0712z/nvim.git ~/.config/nvim --depth 1 && nvim`
+```
+git clone https://github.com/DuongHieu0712z/nvim.git ~/.config/nvim --depth 1 && nvim
+```
 
 ### Windows
 
-`git clone https://github.com/DuongHieu0712z/nvim.git $HOME\AppData\Local\nvim --depth 1 && nvim`
+```
+git clone https://github.com/DuongHieu0712z/nvim.git ~\AppData\Local\nvim --depth 1 && nvim
+```
+
+## Uninstall
+
+### Linux/macOS (Unix)
+
+```
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.cache/nvim
+```
+
+### Windows
+
+```
+rm -r -fo ~\AppData\Local\nvim
+rm -f -fo ~\AppData\Local\nvim-data
+```
+
+
+
+## Null-LS
+
+### Code actions
+
+- eslint_d: `npm install -g eslint_d`
+- proselint: `pip install proselint`
+<!-- - xo: `npm install -D xo` -->
+
+### Completions
+
+### Diagnostics
+
+- jsonlint: `npm install -g jsonlint`
+- luacheck: `luarocks install luacheck`
+- markdownlint: `npm install -D markdownlint`
+- pylint: `pip install pylint`
+- sqlfluff: `pip install sqlfluff`
+- stylelint: `npm install -D stylelint stylelint-config-standard`
+- textlint: `npm install -g textlint`
+<!-- - tidy:
+  - macOS: `brew install tidy-html5`
+  - Windows: `choco install html-tidy`
+  - Linux: `sudo apt install tidy` -->
+- vint: `pip install vim-vint`
+<!-- - yamllint: `pip install yamllint` -->
+
+### Formattings
+
+- black: `pip install black`
+- lua_format: `luarocks install --server=https://luarocks.org/dev luaformatter`
+- prettier: `npm install -D prettier`
+  - eslint: `npm install -D eslint-config-prettier`
+  - stylelint: `npm install -D stylelint-config-prettier`
+<!-- - prettierd: `npm install -g @fsouza/prettierd` -->
+- sql_formatter: `npm install sql-formatter`
