@@ -13,7 +13,7 @@ To reduce the possibility of corruption, this configuration is only maintained f
 - Make sure you have installed the latest version of [`Neovim v0.7+`](https://github.com/neovim/neovim/wiki/Installing-Neovim).
 - Have [`git`](https://git-scm.com/downloads), [`python`](https://www.python.org/downloads/), `pip`, [`node`](https://nodejs.org/en/download/) and `npm` installed on your system.
 - Terminal with true color support (for the default theme, otherwise it is dependent on the theme you are using).
-- Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config use font [CaskaydiaCove NF](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
+- Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config uses font [CaskaydiaCove NF](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
 
 ## Install
 
