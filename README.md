@@ -19,7 +19,7 @@ To reduce the possibility of corruption, this configuration is only maintained f
   - [`lua`](https://www.lua.org/download.html) and [`luarocks`](https://github.com/luarocks/luarocks/wiki/Download) (required only if using `lua`)
   - [`ruby`](https://www.ruby-lang.org/en/downloads/) and `gem` (optional)
   - [`rust`](https://www.rust-lang.org/tools/install) and `cargo` (optional)
-- Terminal with true color support (for the default theme, otherwise it is dependent on the theme you are using).
+- Terminal with true color support.
 - Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config uses font [*CaskaydiaCove NF*](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
 
 ## Install
