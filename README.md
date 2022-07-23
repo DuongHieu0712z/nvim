@@ -55,6 +55,43 @@ rm -r -fo ~\AppData\Local\nvim-data
 
 ## Treesitter
 
+<details><summary><b>This config uses supported languages</b></summary>
+
+- [x] [`c`](https://github.com/tree-sitter/tree-sitter-c)
+- [x] [`cpp`](https://github.com/tree-sitter/tree-sitter-cpp)
+- [x] [`c_sharp`](https://github.com/tree-sitter/tree-sitter-c-sharp)
+- [x] [`java`](https://github.com/tree-sitter/tree-sitter-java)
+- [x] [`python`](https://github.com/tree-sitter/tree-sitter-python)
+- [x] [`html`](https://github.com/tree-sitter/tree-sitter-html)
+- [x] [`css`](https://github.com/tree-sitter/tree-sitter-css)
+- [x] [`scss`](https://github.com/serenadeai/tree-sitter-scss)
+- [x] [`javascript`](https://github.com/tree-sitter/tree-sitter-javascript)
+- [x] [`jsdoc`](https://github.com/tree-sitter/tree-sitter-jsdoc)
+- [x] [`typescript`](https://github.com/tree-sitter/tree-sitter-typescript)
+- [x] [`tsx`](https://github.com/tree-sitter/tree-sitter-typescript)
+- [x] [`embedded_template`](https://github.com/tree-sitter/tree-sitter-embedded-template)
+- [ ] [`vue`](https://github.com/ikatyang/tree-sitter-vue)
+- [x] [`go`](https://github.com/tree-sitter/tree-sitter-go)
+- [x] [`gomod`](https://github.com/camdencheek/tree-sitter-go-mod)
+- [x] [`gowork`](https://github.com/omertuc/tree-sitter-go-work)
+- [x] [`lua`](https://github.com/MunifTanjim/tree-sitter-lua)
+- [x] [`vim`](https://github.com/vigoux/tree-sitter-viml)
+- [x] [`markdown`](https://github.com/MDeiml/tree-sitter-markdown)
+- [x] [`markdown_inline`](https://github.com/MDeiml/tree-sitter-markdown)
+- [x] [`json`](https://github.com/tree-sitter/tree-sitter-json)
+- [x] [`json5`](https://github.com/Joakker/tree-sitter-json5)
+- [x] [`jsonc`](https://gitlab.com/WhyNotHugo/tree-sitter-jsonc)
+- [ ] [`yaml`](https://github.com/ikatyang/tree-sitter-yaml)
+- [ ] [`toml`](https://github.com/ikatyang/tree-sitter-toml)
+- [x] [`sql`](https://github.com/derekstride/tree-sitter-sql)
+- [x] [`cmake`](https://github.com/uyha/tree-sitter-cmake)
+- [x] [`dockerfile`](https://github.com/camdencheek/tree-sitter-dockerfile)
+- [x] [`comment`](https://github.com/stsewd/tree-sitter-comment)
+- [x] [`regex`](https://github.com/tree-sitter/tree-sitter-regex)
+- [ ] [`rst`](https://github.com/stsewd/tree-sitter-rst)
+
+</details>
+
 See more information about supported languages [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 ## LSP

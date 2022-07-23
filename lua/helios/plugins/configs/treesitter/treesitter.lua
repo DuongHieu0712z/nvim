@@ -22,6 +22,8 @@ local languages = {
     -- 'vue',
 
     'go',
+    'gomod',
+    'gowork',
     'lua',
     'vim',
 
@@ -34,9 +36,12 @@ local languages = {
     -- 'toml',
 
     'sql',
+    'cmake',
+    'dockerfile',
 
     'comment',
     'regex',
+    -- 'rst',
 }
 
 treesitter.setup {
