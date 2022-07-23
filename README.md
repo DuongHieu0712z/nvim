@@ -49,7 +49,7 @@ rm -rf ~/.cache/nvim
 
 ```
 rm -r -fo ~\AppData\Local\nvim
-rm -f -fo ~\AppData\Local\nvim-data
+rm -r -fo ~\AppData\Local\nvim-data
 ```
 
 ## Treesitter
