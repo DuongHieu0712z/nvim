@@ -63,5 +63,3 @@ See more information about server configurations [here](https://github.com/neovi
 ## Null-ls
 
 See more information about null-ls builtin sources [here](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md).
-
-See [BUILTIN_CONFIG](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md) to learn how to set up and configure these sources.
