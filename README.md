@@ -96,6 +96,40 @@ See more information about supported languages [here](https://github.com/nvim-tr
 
 ## LSP
 
+<details><summary><b>This config uses language servers</b></summary>
+
+- [ ] [`ccls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ccls)
+- [x] [`clangd`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd)
+- [ ] [`csharp_ls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#csharp_ls)
+- [x] [`omnisharp`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#omnisharp)
+- [ ] [`java_language_server`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server)
+- [x] [`jdtls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#omnisharp)
+- [x] [`pylsp`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp)
+- [x] [`pyright`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright)
+- [x] [`html`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html)
+- [x] [`cssls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls)
+- [x] [`cssmodules_ls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssmodules_ls)
+- [x] [`tsserver`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver)
+- [x] [`eslint`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint)
+- [x] [`emmet_ls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_ls)
+- [ ] [`angularls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls)
+- [ ] [`vuels`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vuels)
+- [x] [`gopls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls)
+- [x] [`sumneko_lua`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua)
+- [x] [`vimls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vimls)
+- [x] [`marksman`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#marksman)
+- [x] [`jsonls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls)
+- [ ] [`lemminx`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lemminx)
+- [ ] [`yamlls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#yamlls)
+- [ ] [`taplo`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#taplo)
+- [x] [`sqlls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls)
+- [x] [`sqls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqls)
+- [x] [`cmake`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cmake)
+- [x] [`dockerls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dockerls)
+- [ ] [`diagnosticls`](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#diagnosticls)
+
+</details>
+
 See more information about server configurations [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) and available LSPs [here](https://github.com/williamboman/nvim-lsp-installer#available-lsps).
 
 ## Null-ls

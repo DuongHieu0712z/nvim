@@ -6,6 +6,7 @@ M.servers = {
     'clangd',
     -- 'csharp_ls',
     'omnisharp',
+    -- 'java_language_server',
     'jdtls',
     'pylsp',
     'pyright',
@@ -32,6 +33,9 @@ M.servers = {
 
     'sqlls',
     'sqls',
+    'cmake',
+    'dockerls',
+    'diagnosticls',
 }
 
 M.setup = function()
