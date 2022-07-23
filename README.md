@@ -10,16 +10,17 @@ To reduce the possibility of corruption, this configuration is only maintained f
 
 ## Prerequisites
 
-- Make sure you have installed the latest version of [`Neovim v0.7+`](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+- Make sure you have installed the latest version of [**`Neovim v0.7+`**](https://github.com/neovim/neovim/wiki/Installing-Neovim).
 - Have the following programs installed on your system:
   - [`git`](https://git-scm.com/downloads)
+  - `make`
   - [`nodejs`](https://nodejs.org/en/download/) and `npm`
   - [`python3`](https://www.python.org/downloads/) and `pip3`
   - [`lua`](https://www.lua.org/download.html) and [`luarocks`](https://github.com/luarocks/luarocks/wiki/Download) (required only if using `lua`)
   - [`ruby`](https://www.ruby-lang.org/en/downloads/) and `gem` (optional)
   - [`rust`](https://www.rust-lang.org/tools/install) and `cargo` (optional)
 - Terminal with true color support (for the default theme, otherwise it is dependent on the theme you are using).
-- Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config uses font [CaskaydiaCove NF](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
+- Use a [Nerd Font](https://www.nerdfonts.com/) in your terminal emulator, this config uses font [*CaskaydiaCove NF*](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip).
 
 ## Install
 
