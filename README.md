@@ -52,7 +52,7 @@ rm -r -fo ~\AppData\Local\nvim
 rm -f -fo ~\AppData\Local\nvim-data
 ```
 
-## Treesitter supported languages
+## Treesitter
 
 See more information about supported languages [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
